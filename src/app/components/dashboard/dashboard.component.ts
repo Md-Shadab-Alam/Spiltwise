@@ -166,7 +166,7 @@ export class DashboardComponent implements OnInit{
     const members:FormArray=this.addGroupForm.get('members') as FormArray;
     if(e.target.checked){
       //find user object by Id
-      const user=this.usersList.find(user=>user.userId==e.target.value);
+      const user=this.usersList.find(user=>user.usersId==e.target.value);
       //Add to FormArray
       members.push(new FormControl(user));
       //Add to selectedMembers array
@@ -174,7 +174,7 @@ export class DashboardComponent implements OnInit{
  
     }else{
       //Remove from FromArray
-      const index=members.controls.findIndex(x=>x.value.userId===e.target.value);
+      const index=members.controls.findIndex(x=>x.value.usersId===e.target.value);
       members.removeAt(index);
       //Remove from selectedMembers array
       const selectedIndex=this.selectedMembers.findIndex(user=>user.userId==e.target.value);
