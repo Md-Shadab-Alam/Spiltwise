@@ -24,8 +24,7 @@ import { LoginComponent } from './components/login/login.component';
     ExpenseComponent,
     AddUsersComponent,
     ExpenseDetailsModalComponent,
-    LoginComponent,
-  
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +34,9 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+   
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
