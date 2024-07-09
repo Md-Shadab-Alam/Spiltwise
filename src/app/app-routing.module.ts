@@ -5,14 +5,16 @@ import { CreateGroupComponent } from './components/create-group-modal/create-gro
 import { GroupComponent } from './components/group/group.component';
 import { ExpenseComponent } from './components/add-expense-modal/expense.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  {path:"",component:HomeComponent },
+  {path:"",component:HomeComponent},
   {path:"dashboard", component:DashboardComponent},
   {path:"Createform", component:CreateGroupComponent},
   {path:"group", component:GroupComponent},
   {path:"group/:groupId", component:GroupComponent},
-  {path:"expense",component:ExpenseComponent}
+  {path:"expense",component:ExpenseComponent},
+  {path:"login", component:LoginComponent}
 ];
 
 @NgModule({

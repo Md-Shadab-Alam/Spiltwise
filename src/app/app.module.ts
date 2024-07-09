@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -12,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddUsersComponent } from './components/add-users-modal/add-users.component';
 import { ExpenseDetailsModalComponent } from './components/expense-details-modal/expense-details-modal.component';
 import { HomeComponent } from './components/home/home.component';
+import { RouterModule } from '@angular/router';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +23,14 @@ import { HomeComponent } from './components/home/home.component';
     GroupComponent,
     ExpenseComponent,
     AddUsersComponent,
-    ExpenseDetailsModalComponent
+    ExpenseDetailsModalComponent,
+    LoginComponent,
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot([]),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule

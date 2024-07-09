@@ -61,9 +61,6 @@ export class DashboardComponent implements OnInit{
       members: this.fb.array([])
     });
     }
-
-   
-
     
   addGroupDetailsRequest : GroupDetails ={
     name: '',
@@ -143,7 +140,6 @@ export class DashboardComponent implements OnInit{
     
   }
 
-  
 
   addGroup(){
     this.addGroupRequest.users=[...this.selectedMembers];
