@@ -34,24 +34,7 @@
                             <h1 class="modal-title fs-5" id="staticExpenseAddLabel">Add Expense</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <form [formGroup]="addExpForm" >
-                                <label class="form-label">Expense Title</label>
-                                <input class="form-control" type="text" formControlName="title" id="title" name="title"
-                                >
-                                <label class="form-label">Description</label>
-                                <input class="form-control" type="text" formControlName="desc" id="desc" name="Description"
-                                >
-                                <label class="form-label">Amount</label>
-                                <input class="form-control" type="number" formControlName="amount" id="amt" name="Amount"
-                                >
-                                <label class="form-label">Paid By:</label>
-                                <label class="form-label">Members:</label>
-
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
-
+                        <app-expense></app-expense>
                     </div>
 
                 </div>

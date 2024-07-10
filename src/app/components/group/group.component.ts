@@ -10,7 +10,7 @@ import { BalanceService } from 'src/app/services/balance.service';
 import { error } from 'jquery';
 import { UsersService } from 'src/app/services/users.service';
 import { Balance } from 'src/app/models/balance';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 interface UserBalance {
   name: string;
@@ -59,7 +59,9 @@ export class GroupComponent implements OnInit {
     this.addExpForm = this.formBuilder.group({
       title: [''],
       desc: [''],
-      amount: ['']
+      amount: [''],
+      userPaid:[''],
+      memberInvolved:this.formBuilder.array([],Validators.required)
     });
   }
 

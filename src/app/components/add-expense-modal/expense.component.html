@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header">Add Expenses</div>
     <div>
-        <form [formGroup]='addExpenseForm' >
+        <form [formGroup]='addExpenseForm' (ngSubmit)="addExpense()" >
             <div>
                 <label class="form-label">Title</label>
                 <input class="form-control" type="text" formControlName="expTitle"
@@ -19,14 +19,26 @@
             </div>
             <div>
                 <label class="form-label">Paid BY</label>
-                <input class="form-control" type="number" formControlName="userPaidID" 
-                id="userPaidID">
+                <input class="form-control" type="number" formControlName="paidBy" 
+                id="userPaidID" [(ngModel)]="addExpenseRequest.usersPaid">
             </div>
             <div>
                 <label> Member</label>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Members
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li *ngFor="let user of usersList">
+                            <input type="checkbox" [value]="user.usersId" (change)="onChechboxChange($event)"/>{{user.name}}
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div>
-                <button type="submit">Submit</button>
+                <button type="submit">
+                    Submit
+                </button>
             </div>
         </form>
     </div>
