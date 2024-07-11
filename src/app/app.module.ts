@@ -13,6 +13,7 @@ import { ExpenseDetailsModalComponent } from './components/expense-details-modal
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginComponent } from './components/login/login.component';
     ExpenseComponent,
     AddUsersComponent,
     ExpenseDetailsModalComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

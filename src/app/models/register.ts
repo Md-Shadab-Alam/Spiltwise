@@ -1,5 +1,5 @@
 export interface Register {
-    UserName : string
+    Username : string
     Name :string
     Password :string
     Role :string

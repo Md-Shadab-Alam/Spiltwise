@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit{
   loginDetails:Login={
     Username:"",
     Password:""
-   
    }
    
    constructor(private route:ActivatedRoute,private loginAuth:AuthService,private router:Router){}
@@ -34,8 +33,6 @@ export class LoginComponent implements OnInit{
       // Validators.minLength(6),
       // Validators.maxLength(15)
     ]),
-    // role:new FormControl("",[ Validators.required])
- 
   });
   get Username():FormControl{
     return this.loginForm.get("username") as FormControl;
@@ -64,8 +61,5 @@ export class LoginComponent implements OnInit{
         this.router.navigateByUrl('dashboard');
       }
     })
- 
-   
   }
- 
 }

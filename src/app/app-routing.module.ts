@@ -6,6 +6,7 @@ import { GroupComponent } from './components/group/group.component';
 import { ExpenseComponent } from './components/add-expense-modal/expense.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:"group", component:GroupComponent},
   {path:"group/:groupId", component:GroupComponent},
   {path:"expense",component:ExpenseComponent},
-  {path:"login", component:LoginComponent}
+  {path:"login", component:LoginComponent},
+  {path:"register", component:RegisterComponent}
 ];
 
 @NgModule({

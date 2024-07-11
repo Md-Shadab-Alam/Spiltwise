@@ -1,0 +1,92 @@
+<div class="outer">
+
+    <div class="card m-3 col-sm-6 col-lg-4 col-md-6">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <h3>REGISTER</h3>
+
+            <div class="input-field">
+                <div class="inputs">
+                    <label for="name">Enter Name</label>
+                    <input type="text" name="name" id="name" autocomplete="off" formControlName="name"
+                        [(ngModel)]="registerDetails.Name">
+                    <span></span>
+                </div>
+
+            </div>
+
+            <small *ngIf="Name.errors?.['required'] && (Name.touched || Name.dirty)" class="text-danger">*Name is
+                required</small>
+            <small *ngIf="Name.errors?.['minlength'] && (Name.touched || Name.dirty)" class="text-danger">*Name is too
+                short</small>
+            <small *ngIf="Name.errors?.['pattern'] && (Name.touched || Name.dirty)" class="text-danger">*Name should
+                start with alphabet</small>
+
+
+            <div class="input-field">
+                <div class="inputs">
+                    <label for="username"> Set username</label>
+                    <input type="email" name="username" id="username" autocomplete="off" formControlName="username"
+                        [(ngModel)]="registerDetails.Username">
+                    <span></span>
+                </div>
+
+
+            </div>
+            <small *ngIf="Username.errors?.['required'] && (Username.touched || Username.dirty)"
+                class="text-danger">*Username is required</small>
+
+            <small *ngIf="Username.errors?.['email'] && (Username.touched || Username.dirty)"
+                class="text-danger">*Please enter valid email Id</small>
+
+            <div class="input-field">
+                <div class="inputs">
+                    <label for="password"> Set Password</label>
+                    <input type="password" class="password" formControlName="password"
+                        [(ngModel)]="registerDetails.Password">
+                    <span></span>
+                </div>
+
+                <small *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)"
+                    class="text-danger">*Password is required</small>
+                <small
+                    *ngIf="Password.errors?.['minlength'] || Password.errors?.['maxlength'] && (Password.touched || Password.dirty)"
+                    class="text-danger">*Password should be at least 6 and at the max 15 characters long.</small>
+            </div>
+            <div class="input-field">
+                <div class="inputs">
+                    <label for="confirmpassword"> Confirm Password</label>
+                    <input type="password" class="confirmpassword" formControlName="confirmpassword">
+                    <span></span>
+                </div>
+
+                <small [ngStyle]="{'display':repeatPass}" class="text-danger">*ConfirmPassword is Invalid</small>
+
+            </div>
+
+
+            <div class=" buttons">
+                <button id="user-btn" [disabled]="registerForm.invalid" class="btn btn-secondary btn-lg"
+                    type="submit">Sign In
+                </button>
+                <!-- <button [disabled]="registerForm.invalid" class="btn btn-secondary btn-lg" type="submit">Register</button> -->
+                <!-- <button class="btn btn-outline-secondary btn-lg" type="button"><a routerLink="../ae">Sign In As
+                        Account
+                        Executive</a></button> -->
+
+            </div>
+            <div class="text-center pt-2 login text-muted">
+                <p>Already have an account? </p><a id="forget" routerLink="../login">Login</a>
+            </div>
+            <div class="text-center login">
+                <p><a id="forget" href=""><i class="bi bi-house-door-fill"></i>&nbsp;Home</a></p>
+            </div>
+
+            <!-- <div class="social">
+                <div class="go"><i class="bi bi-google"></span></div>
+                <div class="fb"><i class="bi bi-facebook"></span></div>
+            </div> -->
+
+        </form>
+    </div>
+</div>
