@@ -1,36 +1,52 @@
 <div class="card">
     <div class="card-header">Add Expenses</div>
     <div>
-        <form [formGroup]='addExpenseForm' (ngSubmit)="addExpense()" >
+        <form [formGroup]='addExpenseForm' (ngSubmit)="addExpense()">
+            
+            <div>
+                <label class="form-label" for="groupName">GroupName</label>
+                <input class="form-control" type="text" formControlName="groupName" id="groupName">
+            </div>
+            <div>
+                <label class="form-label" for="groupId">Group ID:</label>
+                <input class="form-control" type="number" formControlName="groupId" id="groupId">
+            </div>
             <div>
                 <label class="form-label">Title</label>
-                <input class="form-control" type="text" formControlName="expTitle"
-                id="title" [(ngModel)]="addExpenseDetailRequest.title">
+                <input class="form-control" type="text" formControlName="expenseDetails.title"
+                id="title" >
+                <!-- [(ngModel)]="addExpenseDetailRequest.title"> -->
             </div>
             <div>
                 <label class="form-label">Description</label>
-                <input class="form-control" type="text" formControlName="expDesc"
-                id="desc" [(ngModel)]="addExpenseDetailRequest.description">
+                <input class="form-control" type="text" formControlName="expenseDetails.description" id="expDesc">
+                <!-- [(ngModel)]="addExpenseDetailRequest.description"> -->
             </div>
             <div>
                 <label class="form-label">Amount</label>
-                <input class="form-control" type="text" formControlName="amount"
-                id="amt" [(ngModel)]="addExpenseDetailRequest.amount">
+                <input class="form-control" type="number" formControlName="expenseDetails.amount" id="amt">
+                <!-- [(ngModel)]="addExpenseDetailRequest.amount"> -->
             </div>
             <div>
                 <label class="form-label">Paid BY</label>
-                <input class="form-control" type="number" formControlName="paidBy" 
-                id="userPaidID" [(ngModel)]="addExpenseRequest.usersPaid">
+                <select id="paidBy" formControlName="paidBy" (change)="onPaidByChange($event)">
+                    <option *ngFor="let user of usersList" [value]="user.usersId">{{member.name}}</option>
+                </select>
+
+                <!-- <input class="form-control" type="number" formControlName="paidBy" 
+                id="userPaidID" [(ngModel)]="addExpenseRequest.usersPaid"> -->
             </div>
             <div>
-                <label> Member</label>
+                <label class="form-label">Select Members</label>
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         Select Members
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li *ngFor="let user of usersList">
-                            <input type="checkbox" [value]="user.usersId" (change)="onChechboxChange($event)"/>{{user.name}}
+                            <input type="checkbox" [value]="user.usersId"
+                                (change)="onChechboxChange($event)" />{{user.name}}
                         </li>
                     </ul>
                 </div>
@@ -42,4 +58,4 @@
             </div>
         </form>
     </div>
-    </div>
+</div>

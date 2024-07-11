@@ -49,8 +49,8 @@ export class LoginComponent implements OnInit{
     console.log(this.loginDetails);
     this.loginAuth.loginUser(this.loginDetails)
     .subscribe((res:any)=>{
-      console.log(res.JWTToken);
-      if(res.JWTToken==null)
+      console.log(res.token);
+      if(res.token==null)
       {
         console.log(res);
         this.isUserValid=false;
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit{
       else{
         console.log(res);
         this.isUserValid=true;
-        this.loginAuth.setToken(res.JWTToken);
+        this.loginAuth.setToken(res.token);
        alert(res.Message);
         this.router.navigateByUrl('dashboard');
       }
